@@ -1,8 +1,8 @@
 import spacy
 import textacy
 
-nlp = spacy.load('en_core_web_sm')
-text = 'Startup companies create jobs and support innovation '
+nlp = spacy.load('en')
+text = 'Startup companies create jobs and support innovation.'
 
 for sentence in text.split("."):
     val = nlp(sentence)
