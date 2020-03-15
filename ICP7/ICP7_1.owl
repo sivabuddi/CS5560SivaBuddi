@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/sivakumar/ontologies/2020/2/Testing"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/sivakumar/ontologies/2020/2/Testing">
+    <Prefix name="" IRI="http://www.semanticweb.org/sivakumar/ontologies/2020/2/Testing"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#CSModule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lecturer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MathModule"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Module"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Student"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#studies"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#teaches"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#first_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#last_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#staffID"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#studentID"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CS101"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#CS103"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lecture1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lecture2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#M201"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#M204"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Student1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Student2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Student3"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#CSModule"/>
+        <Class IRI="#Module"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MathModule"/>
+        <Class IRI="#Module"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Student"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <DisjointUnion>
+        <Class IRI="#CSModule"/>
+        <Class IRI="#CSModule"/>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#MathModule"/>
+    </DisjointUnion>
+    <DisjointUnion>
+        <Class IRI="#CSModule"/>
+        <Class IRI="#CSModule"/>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#Student"/>
+    </DisjointUnion>
+    <DisjointUnion>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#CSModule"/>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#MathModule"/>
+    </DisjointUnion>
+    <ClassAssertion>
+        <Class IRI="#CSModule"/>
+        <NamedIndividual IRI="#CS101"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#CSModule"/>
+        <NamedIndividual IRI="#CS103"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Lecturer"/>
+        <NamedIndividual IRI="#Lecture1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Lecturer"/>
+        <NamedIndividual IRI="#Lecture2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MathModule"/>
+        <NamedIndividual IRI="#M201"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#MathModule"/>
+        <NamedIndividual IRI="#M204"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#teaches"/>
+        <NamedIndividual IRI="#Lecture1"/>
+        <NamedIndividual IRI="#CS103"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#teaches"/>
+        <NamedIndividual IRI="#Lecture1"/>
+        <NamedIndividual IRI="#M201"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#studies"/>
+        <NamedIndividual IRI="#Student1"/>
+        <NamedIndividual IRI="#CS101"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#studies"/>
+        <NamedIndividual IRI="#Student1"/>
+        <NamedIndividual IRI="#M201"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#studies"/>
+        <NamedIndividual IRI="#Student1"/>
+        <NamedIndividual IRI="#M204"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#studies"/>
+        <NamedIndividual IRI="#Student2"/>
+        <NamedIndividual IRI="#M204"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#studies"/>
+        <NamedIndividual IRI="#Student3"/>
+        <NamedIndividual IRI="#CS103"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#studies"/>
+        <NamedIndividual IRI="#Student3"/>
+        <NamedIndividual IRI="#M201"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#first_name"/>
+        <NamedIndividual IRI="#Lecture1"/>
+        <Literal>Siva Kumar</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#last_name"/>
+        <NamedIndividual IRI="#Lecture1"/>
+        <Literal>Buddi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#staffID"/>
+        <NamedIndividual IRI="#Lecture1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">123456</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#first_name"/>
+        <NamedIndividual IRI="#Student1"/>
+        <Literal>Rajesh</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#last_name"/>
+        <NamedIndividual IRI="#Student1"/>
+        <Literal>Babu</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#staffID"/>
+        <NamedIndividual IRI="#Student1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">654321</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#studentID"/>
+        <NamedIndividual IRI="#Student1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">432134</Literal>
+    </DataPropertyAssertion>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#studies"/>
+        <Class IRI="#Student"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#teaches"/>
+        <Class IRI="#Lecturer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#studies"/>
+        <Class IRI="#Module"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#teaches"/>
+        <Class IRI="#Module"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty IRI="#first_name"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#last_name"/>
+        <Class IRI="#Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#staffID"/>
+        <Class IRI="#Lecturer"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#studentID"/>
+        <Class IRI="#Student"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#first_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#last_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#staffID"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#studentID"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
