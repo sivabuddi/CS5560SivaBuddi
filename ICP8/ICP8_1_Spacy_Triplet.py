@@ -32,7 +32,7 @@ for sentence in clean_data:
         tuples_to_list = list(tuples)
         tuples_list.append(tuples_to_list)
         #print(tuples_list)
-print(tuples_list)
+#print(tuples_list)
 
 #Removing empty tuples in the list
 final=[]
@@ -41,10 +41,10 @@ def Remove(tuples):
     return final
 
 s_v_o= Remove(tuples_list)
-print(s_v_o)
+# print(s_v_o)
 s_v_o = ''.join(str(e) for e in s_v_o)
-
-
+s_v_o = ''.join(str(e) for e in s_v_o)
+print(s_v_o)
 
 
 
