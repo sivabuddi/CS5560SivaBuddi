@@ -7,8 +7,10 @@ Note: Before giving description of this paper major contribution of this paper:
 2) Large Data Set with descriptive answers.(Manual annotations done with large no.of. workers with low iq, medium iq and high level iq employees)
 -------------------------------------------------------------------------------------
 
-
 1) In most of the e-commerce websites providing answers for each question to the each product for all the time may not possible. So, they try to build QA System for providing solutions to the customer queiries based on reviews posted on the specific product in the website.
+
+Objective: Given a set of product reviews and a question concerning a specific product, generate an informative natural
+language answer.
 
 2) So in this paper they introduced
     a. IR Techniques for selcting relevant reviews for answer those questions
@@ -19,34 +21,27 @@ Note: Before giving description of this paper major contribution of this paper:
 
 4) Dataset consists of 923k questions, 3.6M answers and 14M reviews across 156k products. Building on the well-known Amazon dataset, we collect additional annotations, marking each question as either answerable or unanswerable based on the available reviews.
 
-Architecture:
-
-Opinion Questions
-
-• Attitude question, asking for public opinion on
-a product or product aspect, such as “What do
-people think iPhone 3gs?”
-• Reason question, asking for the reason of public opinion on a product or product aspect, such
-as “Why do people like iPhone 3gs?”
-• Target question, asking for the object in the
-public opinion, such as “Which phone is better
-than Nokia N95?”
-• Yes/No question, asking for whether a statement is correct, such as “Is Nokia N95 bad?
-
-
-
-
-
 
 Introduction:
 
 a) Objective: Given a set of product reviews and a question concerning a specific product, generate an informative natural
 language answer.
 b) They created additional curation and annotations on data set to create a new source for automatic community question
-answering due to [1].
+answering.
 c) AmazonQA, offers the following distinctive qualities
 	1 It is extracted entirely from existing, real world data.
 	2 it may be the largest public QA data set with descriptive answers.
+
+
+
+Architecture:
+
+Opinion Questions
+
+• Attitude question, asking for public opinion on a product or product aspect, such as “What do people think iPhone 3gs?”
+• Reason question, asking for the reason of public opinion on a product or product aspect, such as “Why do people like iPhone 3gs?”
+• Target question, asking for the object in the public opinion, such as “Which phone is better than Nokia N95?”
+• Yes/No question, asking for whether a statement is correct, such as “Is Nokia N95 bad?
 
 
 
@@ -55,9 +50,7 @@ State of Art:
 1) Open-World and Closed-World Question Answering:
 ------------------------------------------------------
 
-a) The term simple QA refers to the simplicity of
-the reasoning process needed to answer questions,
-since it involves a single fact.
+a) The term simple QA refers to the simplicity of the reasoning process needed to answer questions, since it involves a single fact.
 
 b) Sample QA Dataset: This dataset consists of a total of 108,442 questions written in natural language by human English-speaking annotators each paired with a corresponding fact from FB2M that provides the answer and explains it.
 
@@ -68,8 +61,11 @@ generate questions from them. For the sampling, each fact was associated with a 
 defined as a function of its relationship frequency in the KB.
 
 d) Given this information, annotators were asked to phrase a question involving
-the subject and the relationship of the fact, with
-the answer being the object. 
+the subject and the relationship of the fact, with the answer being the object. 
+
+Eg: Columbus discovered America.
+    What is discovered by columbus.
+    Who is discovered America.
 
 Extra Information:
 -------------------
@@ -89,15 +85,15 @@ a) In this paper, we focus on the non-factoid questions and aim to pick out the 
 b) Most of the existing deep models directly measure the similarity between question and answer by their individual sentence
 embeddings.
 c) In order to tackle the problem of the information lack in question's descriptions and the lexical gap between questions and answers, we propose a novel deep architecture namely SPAN in this paper.
-d) Specifically we introduce support answers to help understand the question, which are defined as the best answers of
-those similar questions to the original one. Then we can obtain two kinds of similarities, one is between question and the candidate answer, and the other one is between support answers and the candidate answer.
+d) Specifically they introduced and providing answers which helpful to understand the question, which are defined as the best answers of
+those similar questions to the original one. Then we can obtain two kinds of similarities, one is between question and the candidate answer, and the other one is between support answers and the candidate answer. (Indirecty they are answering relevant questions).
 
 
-3) State of Art (Free-form Answers)
+3) State of Art (Free-form Answers) (MS MACRO: MicroSoft A Human Generated MAchine Reading COmprehension Dataset)
 -----------------------------------
 Some recent data sets, including [7] [8] have free-form answer generation. MS MARCO [7] contains user queries from Bing
-Search with human generated answers. 
-Systems generate free-form answers and are evaluated by automatic metrics such as ROUGE-L and BLEU-1.
+Search with human generated answers. [MACRO, Bing Search]
+Systems generate free-form answers and are evaluated by automatic metrics such as ROUGE-L and BLEU-1. [ROUGE-L and BLUE-1]
 Another variant with human generated answers is DuReader [8] for which the questions and documents are based on user queries from Baidu Search and Baidu Zhidao.
 
 a) They introduce a large scale MAchine Reading COmprehension dataset, which we name MS MARCO. The dataset comprises of 1,010,916 anonymized questions-- sampled from Bing’s search query logs—each with a human generated answer and 182,669 completely human rewritten generated answers.
@@ -113,7 +109,16 @@ levels of difficulty:
    (ii) generate a well-formed answer (if possible) based on the context passages that can be
 understood with the question and passage context.
    (i) predict if a question is answerable given a set of context
-passages, and extract and synthesize the answer as a human  
+passages, and extract and synthesize the answer as a human.
+
+
+4) State of Art (Community/Opinion Question Answering)
+a) address subjective queries using the relevance of reviews.
+b) Extend this work by incorporating aspects of personalization and ambiguity.
+c) It employ SVM classifiers for identifying the question
+aspects, question types, and classifying responses as opinions
+or not, optimizing salience, coherence and diversity to generate
+an answer.
    
 
 
