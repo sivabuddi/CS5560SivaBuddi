@@ -28,7 +28,7 @@ a) Objective: Given a set of product reviews and a question concerning a specifi
 language answer.
 b) They created additional curation and annotations on data set to create a new source for automatic community question
 answering.
-c) AmazonQA, offers the following distinctive qualities
+c) AmazonQA, offers the following distinctive qualities (Novelty of this paper)
 	1 It is extracted entirely from existing, real world data.
 	2 it may be the largest public QA data set with descriptive answers.
 
@@ -86,7 +86,7 @@ b) Most of the existing deep models directly measure the similarity between ques
 embeddings.
 c) In order to tackle the problem of the information lack in question's descriptions and the lexical gap between questions and answers, we propose a novel deep architecture namely SPAN in this paper.
 d) Specifically they introduced and providing answers which helpful to understand the question, which are defined as the best answers of
-those similar questions to the original one. Then we can obtain two kinds of similarities, one is between question and the candidate answer, and the other one is between support answers and the candidate answer. (Indirecty they are answering relevant questions).
+those similar questions to the original one. Then we can obtain two kinds of similarities, one is between question and the candidate answer, and the other one is between support answers and the candidate answer. (Indirecty they are answering the original by referencing relevant questions by considering similarity check).
 
 
 3) State of Art (Free-form Answers) (MS MACRO: MicroSoft A Human Generated MAchine Reading COmprehension Dataset)
@@ -113,13 +113,27 @@ passages, and extract and synthesize the answer as a human.
 
 
 4) State of Art (Community/Opinion Question Answering)
-a) address subjective queries using the relevance of reviews.
-b) Extend this work by incorporating aspects of personalization and ambiguity.
+---------------------------------------------------------------------------
+a) To address subjective queries using the relevance of reviews.
+b) Extend this work by incorporating aspects(acutal answers / reviews) of personalization and ambiguity.
 c) It employ SVM classifiers for identifying the question
 aspects, question types, and classifying responses as opinions
 or not, optimizing salience, coherence and diversity to generate
 an answer.
    
+Salience:- is used to measure the representativeness of the answer.  A good answer should consist
+of salient review sentences.
+
+Coherence:- is used to quantify the readability of an answer. To make the answer readable, the constituent sentences in the answer should be ordered properly.
+
+Identifying the question form: Question form includes single and comparative. A question is viewed as comparative if it contains comparative adjectives and adverbs (e.g. cheaper, etc.), otherwise as the single form.
+
+Diversity:- A good answer should diversely cover all the important information.
+
+
+
+
+
 
 
 
