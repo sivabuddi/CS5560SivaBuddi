@@ -1,0 +1,80 @@
+Overall objective of this paper:
+
+Note: Before giving description of this paper major contribution of this paper:
+
+-------------------------------------------------------------------------------------
+1) Well design dataset from Amazon website because they are researcher from amazon.
+2) Large Data Set with descriptive answers.
+-------------------------------------------------------------------------------------
+
+
+1) In most of the e-commerce websites providing answers for each question to the each product for all the time may not possible. So, they try to build QA System for providing solutions to the customer queiries based on reviews posted on the specific product in the website.
+
+2) So in this paper they introduced
+    a. IR Techniques for selcting relevant reviews for answer those questions
+    b. Reading compresion models helpful to synthsize an answer.
+
+3) They evaluate numerous models for answer generation and propose strong baselines such as Language models, Span QA Models, demonstrating the challenging nature of this new task.
+
+
+4) Dataset consists of 923k questions, 3.6M answers and 14M reviews across 156k products. Building on the well-known Amazon dataset, we collect additional annotations, marking each question as either answerable or unanswerable based on the available reviews.
+  
+
+
+Architecture:
+
+Opinion Questions
+
+• Attitude question, asking for public opinion on
+a product or product aspect, such as “What do
+people think iPhone 3gs?”
+• Reason question, asking for the reason of public opinion on a product or product aspect, such
+as “Why do people like iPhone 3gs?”
+• Target question, asking for the object in the
+public opinion, such as “Which phone is better
+than Nokia N95?”
+• Yes/No question, asking for whether a statement is correct, such as “Is Nokia N95 bad?
+
+
+State of Art:
+
+1) Open-World and Closed-World Question Answering:
+------------------------------------------------------
+
+a) The term simple QA refers to the simplicity of
+the reasoning process needed to answer questions,
+since it involves a single fact.
+
+b) Sample QA Dataset: This dataset consists of a total of 108,442 questions written in natural language by human English-speaking annotators each paired with a corresponding fact from FB2M that provides the answer and explains it.
+
+c) i) We collected SimpleQuestions in two phases. The first phase consisted of shortlisting the set of
+facts from Freebase to be annotated with questions.
+   ii)In the second phase, these selected facts were sampled and delivered to human annotators to
+generate questions from them. For the sampling, each fact was associated with a probability which
+defined as a function of its relationship frequency in the KB.
+
+d) Given this information, annotators were asked to phrase a question involving
+the subject and the relationship of the fact, with
+the answer being the object. 
+
+Extra Information:
+-------------------
+e) This paper presents two contributions. First, as an they study the coverage of existing systems and the possibility to train jointly on different data sources via multitasking, they collected the first large-scale dataset of questions and answers based on a KB, called SimpleQuestions.
+
+f) However, while most recent efforts have focused on designing systems with higher reasoning capabilities, that could jointly retrieve and use multiple facts to answer, the simpler problem of answering questions that refer to a single fact of the KB,
+which we call Simple Question Answering in this paper, is still far from solved
+
+g) the actual need for reasoning, i.e. constructing the answer from more than a single fact from the KB, depends on the actual structure of the KB. As we shall see, for instance, a simple preprocessing of Freebase tremendously increases the coverage of simple QA in terms of possible questions that can be answered with a single fact, including list questions that expect more than a single answer. 
+
+
+
+2) State of Art (SPAN: Understanding a Question with Its Support Answers):
+
+
+
+
+
+
+
+
+
