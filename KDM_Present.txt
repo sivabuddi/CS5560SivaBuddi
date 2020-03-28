@@ -4,7 +4,7 @@ Note: Before giving description of this paper major contribution of this paper:
 
 -------------------------------------------------------------------------------------
 1) Well design dataset from Amazon website because they are researcher from amazon.
-2) Large Data Set with descriptive answers.
+2) Large Data Set with descriptive answers.(Manual annotations done with large no.of. workers with low iq, medium iq and high level iq employees)
 -------------------------------------------------------------------------------------
 
 
@@ -18,8 +18,6 @@ Note: Before giving description of this paper major contribution of this paper:
 
 
 4) Dataset consists of 923k questions, 3.6M answers and 14M reviews across 156k products. Building on the well-known Amazon dataset, we collect additional annotations, marking each question as either answerable or unanswerable based on the available reviews.
-  
-
 
 Architecture:
 
@@ -34,6 +32,22 @@ as “Why do people like iPhone 3gs?”
 public opinion, such as “Which phone is better
 than Nokia N95?”
 • Yes/No question, asking for whether a statement is correct, such as “Is Nokia N95 bad?
+
+
+
+
+
+
+Introduction:
+
+a) Objective: Given a set of product reviews and a question concerning a specific product, generate an informative natural
+language answer.
+b) They created additional curation and annotations on data set to create a new source for automatic community question
+answering due to [1].
+c) AmazonQA, offers the following distinctive qualities
+	1 It is extracted entirely from existing, real world data.
+	2 it may be the largest public QA data set with descriptive answers.
+
 
 
 State of Art:
@@ -69,10 +83,38 @@ g) the actual need for reasoning, i.e. constructing the answer from more than a 
 
 
 2) State of Art (SPAN: Understanding a Question with Its Support Answers):
+------------------------------------------------------------------------------
+
+a) In this paper, we focus on the non-factoid questions and aim to pick out the best answer from its candidate answers.
+b) Most of the existing deep models directly measure the similarity between question and answer by their individual sentence
+embeddings.
+c) In order to tackle the problem of the information lack in question's descriptions and the lexical gap between questions and answers, we propose a novel deep architecture namely SPAN in this paper.
+d) Specifically we introduce support answers to help understand the question, which are defined as the best answers of
+those similar questions to the original one. Then we can obtain two kinds of similarities, one is between question and the candidate answer, and the other one is between support answers and the candidate answer.
 
 
+3) State of Art (Free-form Answers)
+-----------------------------------
+Some recent data sets, including [7] [8] have free-form answer generation. MS MARCO [7] contains user queries from Bing
+Search with human generated answers. 
+Systems generate free-form answers and are evaluated by automatic metrics such as ROUGE-L and BLEU-1.
+Another variant with human generated answers is DuReader [8] for which the questions and documents are based on user queries from Baidu Search and Baidu Zhidao.
 
+a) They introduce a large scale MAchine Reading COmprehension dataset, which we name MS MARCO. The dataset comprises of 1,010,916 anonymized questions-- sampled from Bing’s search query logs—each with a human generated answer and 182,669 completely human rewritten generated answers.
 
+b) In addition, the dataset contains 8,841,823 passages—extracted from 3,563,535 web documents retrieved
+by Bing--that provide the information necessary for curating the natural language answer.
+
+c) A question in the MS MARCO dataset may have multiple answers or no
+answers at all. Using this dataset, they propose three different tasks with varying
+levels of difficulty: 
+
+   (iii) rank a set of retrieved passages given a question
+   (ii) generate a well-formed answer (if possible) based on the context passages that can be
+understood with the question and passage context.
+   (i) predict if a question is answerable given a set of context
+passages, and extract and synthesize the answer as a human  
+   
 
 
 
