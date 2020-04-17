@@ -25,6 +25,18 @@ for i in range(5):
     axarr[i].imshow(img)
 plt.show()
 
+
+print('Example testing images and their labels: ' + str([x[0] for x in y_test[0:5]]))
+print('Corresponding classes for the labels: ' + str([cifar_classes[x[0]] for x in y_test[0:5]]))
+
+f, axarr = plt.subplots(1, 5)
+f.set_size_inches(16, 6)
+
+for i in range(5):
+    img = X_test[i]
+    axarr[i].imshow(img)
+plt.show()
+
 # Transform label indices to one-hot encoded vectors
 
 y_train = to_categorical(y_train, num_classes=10)
