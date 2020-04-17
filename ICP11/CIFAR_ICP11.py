@@ -89,3 +89,12 @@ print(y_test[:5])
 testing = y_test[:5]
 print(np.argmax(testing, axis =1)) #  [3 8 8 0 6]  ; dynamically will change depends on the model
 print("\n")
+
+# summarize history for accuracy
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.show()
