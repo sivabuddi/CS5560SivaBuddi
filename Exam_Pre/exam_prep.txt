@@ -1,0 +1,254 @@
+Types of FFNN:--
+
+1)CNN
+2)Auto Encoders
+
+https://www.analyticsvidhya.com/blog/2020/02/cnn-vs-rnn-vs-mlp-analyzing-3-types-of-neural-networks-in-deep-learning/
+
+----------------------------------
+A) Convolutional Neural Networks:
+----------------------------------
+
+1) The primary purpose of cnn is feature engineering
+    a) Extract the features from images / text.
+    b) Convolution preserves the spatial relationships between pixels by learning image features that is presented in the image.
+    c) Convolution preserves the semantic relationships between words by learning text features that is presented in the documents / text.
+
+2) Activation fuctions play a key role in dealing with complex data.
+   a) To convert the functionality from linearity to non-linearity.
+   b) Linear function(y=mx+c) to non-linear functions sigmoid, tangent, threshold,relu, leakyrelu, softmax.
+   c) Purpose of activation function is to introduce non-linearity in to the network, this allows output varibles(response variables) that varies non-linearity with its input (exploratory variables).
+   d) Non-lineary means ouput can not produced with linear compbination of inputs.
+3) Pooling (Sub sampling)
+   a) Reduce the dimensionality of the each feature map, but it retains most of the significant information.
+   b) Using pooling, it is possible to reduce the computational expensive.
+   c) Pooling can be max, avg, sum
+   
+4) Convolution layers( pixels --> object parts ---> object--> feature representation)
+5) input-->conv-->pooling-->conv-->pooling-->conv--relu--conv--relu--conv--pool--
+6) It is sufferning from vanishing and exploding gradient problem.
+7) Parameter sharing is also done across the network. It means, CNN also follows the concept of parameter sharing. A single filter is applied across different parts of an input to produce a feature map.
+
+
+
+Advantages:
+
+1) CNN learns the filters automatically without mentioning it explicitly. These filters help in extracting the right and relevant features from the input data.
+2) CNN captures the spatial features from an image. Spatial features refer to the arrangement of pixels and the relationship between them in an image. They help us in identifying the object accurately, the location of an object, as well as its relation with other objects in an image.
+
+
+Limitations of CNN:
+
+1) Convolutional neural networks like any neural network model are computationally expensive. So we use GPU Systems.
+2) CNN do not encode the position and orientation of object.
+3) Lack of ability to be spatially invariant to the input data.
+
+
+Applications of CNN:
+1) Facial Recogntion, Digit recognition
+2) Image Classifications. 
+3) Document Analysis.
+
+
+
+
+--------------------
+B) Autoencoders: Unsupervised Algorithm
+--------------------
+
+1) Data compression technique, Dimenstionality reduction
+2) It contains 3 parts (Encoder, Code, Decoder)
+3) It is unsupervised learning algorithm. In other words it is self-supervised algo where labels are identified on their own. It is not expecting
+to train with external labels. 
+4) It is not suitbale for lossless compression.
+5) Auto encoder reconstruct the input image using decoder (most of the important features) from the Compressed version of input(Code).
+6) The code is compact summary or compression of the input is also called the latent space represenation.
+7) PCA is restricted to a linear map, while auto encoders can have nonlinear enoder/decoders.
+8) Encoding is also there in CNN where INPUT-->CONV-->POOLING---CONV---POOLING--------......>FLATTENING(Encoded version of Image in image).
+
+
+
+
+Understading:
+
+1) Left part of Network is encoder it tranforms the input to lower dimensional represenation.
+2) Right part of Network is decoder it trnaforms or reconstruct the orinal input from the lower dimensional represenation.
+3) Auto encoders works by adding a bottleneck layer in the network. This bottleneck forces the network to create a compressed version of the input. 
+4) From auto encoder Conclusion
+   a) h(x)  = sigmoid(W multiply by X + bias) 
+   b) x(hat) = sigmoid ( W* multiply h(x) + bias) where W* represents Tranpose of W where W represents weights used in encoder phase.
+5) Calculating Loss 
+   a) It it is binary (cross-enthropy)
+   b) It is real value (Sum of squares difference i.e, squared euclidean distance)
+
+Constraints:
+1) Size (bottle necklayer i.e., hidden layer neurons should be less than input layer neurons)
+2) Activation function should be non-linear other wise it considered to be PCA.
+3) 
+
+
+
+Advantages:
+
+1)Simultaneously learns Data encoding, reconstruction and generation. 
+2) Easy to sample good latent space for good data generation.
+
+
+Disadvantage:
+
+1) If input data is image, then generated images are often blurry.
+
+
+
+
+
+
+-------------------------
+Recurrant Neural Networks
+-------------------------
+
+https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks
+
+
+1) Recurrant neural network takes the hiddent and previous output as input for network.
+2) RNN are useful to store the information about past input values in the form of states(intermediate values) for some time temporarily.
+3) It is suitable for sequential data, ordering data, time series analysis etc.
+4) Types of RNN: 
+   a) 1- many (Music Generation)
+   b) Many-1 (Sentiment analysis)
+   c) Many-Many (A = B)(Named Entity Recognition)
+   d) Many-Many (A!=B) Machine Translation
+   e) 1-1 (Traditional Neural Network) 
+
+
+
+
+Advantages:
+1) Possibilty of processing input of any length.
+2) Model size is not increasing as the size of input increase.
+3) Weights are shared across time (sharing paramters ie. fileters)
+4) Computation takes the historic information. 
+5) Traditional RNN suitable for short term dependencies.
+
+
+Disadvantages:
+
+1) Computation being slow.
+2) Cannnot consider the any future input for the current state.
+3) Difficulty of accessing information long time ago.
+4) It is suffering from Vanishing / Exploding gradient problem i.e. it is difficult to capture the long term dependencies because of 
+   multiplicative gradient that can be exponentially increase / decrease w.r.to no.of.layers. To overcome this problem, LSTM and GRU 
+   come to the picture. In simple words, when ever Vanishing problem occurs, it never reaches to global minima, i.e, the loss value 
+   will update, but it takes exponential. So predicted value and groud truth match almost impossible.
+
+Note: To deal with exploding gradient problem, it’s best to threshold the gradient values at a specific point. This is called gradient clipping.
+
+
+
+5) RNN never care about the context what was happend before i.e, fail to understand the context of the input.
+
+
+
+------------------------------------------
+LSTM
+------------------------------------------
+
+1) Using LSTM, information flow through the cell states i.e, it selectivey remember or forget things.
+2) Information at a particular cell state has three differnt dependencies.
+   a) Previous Cell State.
+   b) Previous Hidden State.
+   c) Input at the current time step.
+3) 
+
+4) LSTM has Three Gates: Three Gates of LSTM Cell. These are binary gates.
+   a) Input Gate (Is Cell updated)
+   b) Forget Gate (Is cell memory set to o or not)
+   c) Output Gate (Is current Info visible)
+   d)a,b,c using sigmoid function. Since sigmoid value varies from zero to one. It is possible to distinguish the states of three gates(input, forget, output)
+5) LSTM has another gate call C(bar) representes Cell State. In this case Cell state using tanh activation function which helpful to avoid 
+   Vanishing Gradient Problem / Exploding Problem. This C bar used for modified the cell state. This is new candidate value applied to the gates.
+
+6) LSTM Parameters [bi,wi,bo,wo,bf,wo,bc,wc]
+7) It is difficult to manage these many parameters in RNN. So they proceed to go for GRU.	
+
+
+
+Applications:
+
+1) Design an LSTM Model to predict next word from the simple story. 
+2) Design an LSTM Model with correct sequence from the text of 3 symbols as inputs.
+3) 
+
+
+
+
+-----------------------------------
+Topic Modeling (LDA)
+-----------------------------------
+1. LDA is designed for topic modelling that generates topics based on the word-frequency from a set of documents. 
+2. LDA is espeically useful for finding reasonably mixture of topics from with in the given documents.
+3. Steps required for LDA for doing topic modeling:
+   a) Collect the documents from news articles.
+   b) Each document represents new article.
+   c) Data Cleaning requires:
+      A) Tokenizing: Converting a document into an atomic elements. 
+      B) Stopping: Removing unnecessary words in the documents. 
+      C) Stemming: Merge words that are equivalent in meaning.
+   d) Consider i want to select 3 topics from the given document. 
+      A) It assigns random topic to each word in the corpus of document. These topics assigns randomly.
+      B) No.of.topics i assumed are 3.
+      C) After that, it calculates Document-topic count in the form of matrix. It represents how each word associate with each topic.
+	Here it will perform two task.
+      D) How much documents likes each topic based on other documents.
+      E) After that calcuate How much doc likes topic (Prob(topic/doc), Prob(word/topic)) and How much topic likes a word.   
+      F) Re assign word W a new topic t where we choose topic  t with probability  P(topic/doc) * P(word/topic)
+      G) Repeat Step F  a large no.of.times we reach a steady state where topic assignments are very good. These assignments are useful to determine the topic mixtures of each  document.
+      H) After a number of iterations, a steady state is achieved where the document topic and document term distributions are good. 
+      
+4) Overall,
+   Calculate Alpha represents document-topic distribution (P(topic/Doc)
+
+   Calculate Theta represents topic distribution for document m (specific to document)
+
+   Calculate Z represents n th word presented in document m (i.e, topic-term distribution)
+
+   Calcuate Beta represents term or word-topic distribution(P(word/topic))
+   
+   Calcuate W represent Specific word (i.e, n th word in document m)
+   	
+
+
+
+
+Advanages:
+1) LDA is a probabilistic model with interpretable topics. It means, it exploits statistical inference to discover latent pattern in the data.
+2) 
+
+
+Disadvantages:
+1) Fixed K (the number of topics is fixed and must be known ahead of time).
+2) Dirichlet topic distribution cannot capture correlations.
+3) Assumes words are exchangeable, sentence structure is not modeled.
+
+
+Applications:
+
+1) Initial step for summarization of a large collection of text data.
+2) For clustering images and classification.
+3) 
+
+
+
+
+
+
+MCQ's:
+-------
+https://www.analyticsvidhya.com/blog/2017/04/40-questions-test-data-scientist-deep-learning/
+https://www.analyticsvidhya.com/blog/2017/08/skilltest-deep-learning/
+https://www.analyticsvidhya.com/blog/2017/01/must-know-questions-deep-learning/
+
+
+
+
+
