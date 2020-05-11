@@ -239,14 +239,51 @@ Applications:
 
 
 
-
-
-
 MCQ's:
 -------
 https://www.analyticsvidhya.com/blog/2017/04/40-questions-test-data-scientist-deep-learning/
 https://www.analyticsvidhya.com/blog/2017/08/skilltest-deep-learning/
 https://www.analyticsvidhya.com/blog/2017/01/must-know-questions-deep-learning/
+https://www.analyticsvidhya.com/blog/2017/07/30-questions-test-data-scientist-natural-language-processing-solution-skilltest-nlp/
+
+---------------------------------------------------------------------------------
+Sentiment Analysis or Opinion Mining or Subjective Analysis or Opinion Extraction
+---------------------------------------------------------------------------------
+1. Two types of information in the text
+   a) Facts.
+   b) Opinion.[When making a decision]
+
+2. Opinion is a quintuple.
+   a) Target Object
+   b) Feature of the Object [Aspect]
+   c) Sentiment  value of opinion on opinion holder on feature of Object at time t. It may be either positive or negative or neutral.
+   d) Opinion Holder
+   e) Time when opinion has expressed.
+
+Example: (iPhone, General, positive, Sivakumar, May-10) (iPhone, Touchscreen, positive, Siva, May-11)
+
+3. When Objective Sentence expresses Facts where as Subjective Sentences expresses opinions, belief, view.
+ 
+
+
+Feature based Sentiment Analysis:
+------------------------------------
+
+1. They do not tell what people like or dislike.i.e., positive opinion does  not mean that the opinion holder likes everything. Negitive opinion
+does not mean that the holder dislikes everything. 
+
+2. Identify the Quintuple.
+
+Opinion Summary:
+-----------------
+1. Lot of opinions, summary is neccessary [Multi-document summarization]
+2. Summariziation is to select the most important facts and present them in a sensible order [1 facts not equal to more facts]
+3. one opinion is not equal to number of opinions.
+4. Opinion summarization  is depnds on the Qunituples.[Aspect-based Summary is more suitable]
+
+
+
+
 
 
 
