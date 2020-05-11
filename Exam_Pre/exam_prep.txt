@@ -1,3 +1,11 @@
+MCQ's:
+-------
+https://www.analyticsvidhya.com/blog/2017/04/40-questions-test-data-scientist-deep-learning/
+https://www.analyticsvidhya.com/blog/2017/08/skilltest-deep-learning/
+https://www.analyticsvidhya.com/blog/2017/01/must-know-questions-deep-learning/
+https://www.analyticsvidhya.com/blog/2017/07/30-questions-test-data-scientist-natural-language-processing-solution-skilltest-nlp/
+
+
 Types of FFNN:--
 
 1)CNN
@@ -8,7 +16,7 @@ https://www.analyticsvidhya.com/blog/2020/02/cnn-vs-rnn-vs-mlp-analyzing-3-types
 ----------------------------------
 A) Convolutional Neural Networks:
 ----------------------------------
-
+.
 1) The primary purpose of cnn is feature engineering
     a) Extract the features from images / text.
     b) Convolution preserves the spatial relationships between pixels by learning image features that is presented in the image.
@@ -239,13 +247,6 @@ Applications:
 
 
 
-MCQ's:
--------
-https://www.analyticsvidhya.com/blog/2017/04/40-questions-test-data-scientist-deep-learning/
-https://www.analyticsvidhya.com/blog/2017/08/skilltest-deep-learning/
-https://www.analyticsvidhya.com/blog/2017/01/must-know-questions-deep-learning/
-https://www.analyticsvidhya.com/blog/2017/07/30-questions-test-data-scientist-natural-language-processing-solution-skilltest-nlp/
-
 ---------------------------------------------------------------------------------
 Sentiment Analysis or Opinion Mining or Subjective Analysis or Opinion Extraction
 ---------------------------------------------------------------------------------
@@ -280,6 +281,148 @@ Opinion Summary:
 2. Summariziation is to select the most important facts and present them in a sensible order [1 facts not equal to more facts]
 3. one opinion is not equal to number of opinions.
 4. Opinion summarization  is depnds on the Qunituples.[Aspect-based Summary is more suitable]
+
+
+
+----------------------------------------------
+ONTOLOGY
+----------------------------------------------
+1. Ontology is identical to RDF Schema.
+2. Purpose of OWL is provide an XML Vocabulary to define classes, properties and their relationships.
+3. RDF Schema enables you to express basic relationships and has limited inference capability where as OWL enables you to express
+   rich relationships thus produces much enchanced inference capability.
+4. Benifit of OWL  is to provide much higher degree of inferencing that the RDF Schema.
+
+
+Defining Properties:
+----------------------
+A. RDF Schema provides three ways  to provide property
+
+1. range 
+2. domain
+3. subPropertyOf
+
+B. OWL provides also do the same as RDF Schema.
+
+1. rdfs:range
+2. rdfs:domain
+3. rdfs:subPropertyOf
+
+
+
+Additional Properties:-
+-----------------------
+1. Symmetry Property.[connectTo] Eg: The Wu River connectsTo the Yangtze River.
+2. Transitive Property.[containedIn] Eg: EastChinaSea containedIn ChinaSea and ChinaSea containedIn PacificSea then EastChinaSea containedIn PacificSea.
+3. Funcational Property. [emptiesInto] Eg: A emptiesInto C and A emptiesInto D then C&D refers the same thing A.
+4. Inverse Property.[feedsForm] Eg: A emptiesInto B then inverse property is B is feedsFrom A.
+5. Invese Funcational Property.Eg: C feedsFrom A and D feedsFrom A then C&D refers the same thing A. [ 4 and 5 Funcational and Inverse Funcational Property]
+
+
+Defining Properties in OWL:
+
+1. RDF Schemea, rdf:Property was used for both
+   a) Resource to Resource
+   b) Resouce to Literal Value or Data Type.
+
+2. OWL decided that, these are two classes of properties and thus each of should have its own class.
+   a) owl:ObjectProperty used for Resource to Resource
+   b) owl:DatatypeProperty is used to relate a Resource to an rdfs:Literal or an XMLSchema Built in Datatype.
+
+3. owl:ObjectProperty and owl:DatatypeProperty are subclass of rdf:Property
+4. Defining Properties in RDF Schema vs OWL.
+5. OWL Namespace
+6. What is the URI for the properties and classes defined by an OWL document?
+
+
+
+Definining Symmetric Property:
+-------------------------------
+1. owl:SymmetricProperty is subclass of ObjectProperty where owl:ObjectProperty is subclass of rdf:Property
+   Example 1: <rdf:RDF 
+			<owl:ObjectProperty refID="connectTo" 
+                        <rdf:type rdf:resource=".............#SymmetricProperty"/>
+                        </owl:ObjectProperty>
+	      </rdf:RDF>
+   
+
+
+   Example 2: <owl:SymmetricProperty refID="connectTo"....../owl>
+
+
+Defining Transitive Property:
+-------------------------------
+1: owl:TransitiveProperty is subclass of owl:ObjectProperty where owl:ObjectProperty is subclass of rdf:Property.
+   Example:<owl:ObjectProperty refID="containedID" 
+	   <rdf:type rdf:resource="............................#TransitiveProperty/>
+	   <owl:ObjectProperty>
+
+
+
+Defining Funcational Property:
+-------------------------------
+1. owl:FuncationalProperty  is a subclass of rdf:Property
+
+
+   Example:<rdf:RDF..>
+	   <owl:ObjectProperty refID="emptiesInto" 
+	   <rdf:type rdf:resource="............................#FunctionalProperty"/>
+	   <owl:ObjectProperty>
+	   </rdf:RDF>
+
+
+
+Defining Inverse Property:
+---------------------------
+Example:
+
+     <rdf:RDF>
+	<owl:ObjectProperty refID="emptiesInto">
+	<rdf:type rdf:resource="..................#FuncationalProperty">
+	<rdfs:domain rdf:resource = "A"/>	
+        <rdfs:range rdf:resource="B"/>
+	</owl:ObjectProperty>
+
+
+	<owl:ObjectProperty refID="feedsFrom">
+	<owl:inverseOf rdf:resource="#emptiesInto"/> 
+	<rdfs:domain rdf:resource = "B"/>	
+        <rdfs:range rdf:resource="A"/>	
+	</owl:ObjectProperty>
+
+     </rdf:RDF>
+
+
+
+
+
+Defining Functional Inverse Property:
+------------------------------
+1: owl:InverseFuctionalProperty is subclass of rdf:Property
+
+ Example: 
+
+
+        <rdf:RDF>
+
+	<owl:ObjectProperty refID="emptiesInto">
+	<rdf:type rdf:resource="..................#FuncationalProperty">
+	<rdfs:domain rdf:resource = "A"/>	
+        <rdfs:range rdf:resource="B"/>
+	</owl:ObjectProperty>
+
+
+	<owl:ObjectProperty refID="feedsFrom">
+	<rdf:type rdf:resource="..................#InverseFuncationalProperty">
+	<owl:inverseOf rdf:resource="#emptiesInto"/> 
+	<rdfs:domain rdf:resource = "B"/>	
+        <rdfs:range rdf:resource="A"/>	
+	</owl:ObjectProperty>
+
+       </rdf:RDF>
+
+
+
 
 
 
